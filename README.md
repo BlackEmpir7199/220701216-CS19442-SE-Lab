@@ -2,8 +2,6 @@
 
 Welcome to the **Online Course Registration System** project! This repository presents a comprehensive design and documentation for a next-generation course registration system aimed at enhancing user experience for students, faculty, and administrative staff.
 
-![Banner](assets/banner.png)
-
 ## 🚀 Project Overview
 
 Educational institutions often struggle with outdated course registration systems that are frustrating and inefficient. Our project aims to address these issues by offering:
@@ -41,7 +39,7 @@ Educational institutions often struggle with outdated course registration system
 
 ### Overview
 
-![Architecture Diagram](assets/architecture_diagram.png)
+![Architecture Diagram](Project-Diagrams/Architecture Diagram/systemMVCArchitecture.png)
 
 ### MVC Architecture
 
