@@ -39,9 +39,9 @@ Educational institutions often struggle with outdated course registration system
 
 ### Overview
 
-![Architecture Diagram](Project-Diagrams/Architecture Diagram/systemMVCArchitecture.png)
-
 ### MVC Architecture
+
+![systemMVCArchitecture](https://github.com/BlackEmpir7199/220701216-CS19442-SE-Lab/assets/118678415/63aab791-0a68-4a42-a7d4-8a3a44a6318f)
 
 - **Model:** Manages data and business logic
 - **View:** Renders UI components
@@ -49,47 +49,12 @@ Educational institutions often struggle with outdated course registration system
 
 ### Deployment Architecture
 
-![Azure Deployment Diagram](assets/azure_deployment_diagram.png)
+![deploymentDiagarm](https://github.com/BlackEmpir7199/220701216-CS19442-SE-Lab/assets/118678415/63ff7d29-9157-433d-b5b8-b751f738824f)
+
 
 - Utilizes Azure for cloud deployment
 - Scalable and reliable infrastructure
 
-## 🛠️ Installation
-
-### Prerequisites
-- Node.js
-- npm
-- MongoDB
-- Azure account
-
-### Steps
-
-1. **Clone the repository:**
-    ```sh
-    git clone https://github.com/yourusername/course-registration-system.git
-    cd course-registration-system
-    ```
-
-2. **Install dependencies:**
-    ```sh
-    npm install
-    ```
-
-3. **Set up environment variables:**
-    ```sh
-    cp .env.example .env
-    # Edit .env file with your configuration
-    ```
-
-4. **Run the application:**
-    ```sh
-    npm start
-    ```
-
-5. **Open your browser and navigate to:**
-    ```
-    http://localhost:3000
-    ```
 
 ## 📝 Usage
 
@@ -178,15 +143,18 @@ Educational institutions often struggle with outdated course registration system
 
 ### Use Case Diagram
 
-![Use Case Diagram](assets/use_case_diagram.pn)
+![useCaseDiagram](https://github.com/BlackEmpir7199/220701216-CS19442-SE-Lab/assets/118678415/06a70210-5ef0-49f8-81be-945c57976d14)
+
 
 ### Class Diagram
 
-![Class Diagram](assets/class_diagram.png)
+![classDiagram](https://github.com/BlackEmpir7199/220701216-CS19442-SE-Lab/assets/118678415/e866565d-2761-44ea-8727-07335a637c4f)
+
 
 ### Sequence Diagram
 
-![Sequence Diagram](assets/sequence_diagram.png)
+![sequenceDiagram](https://github.com/BlackEmpir7199/220701216-CS19442-SE-Lab/assets/118678415/98a9ebb5-746b-4601-b4d8-cde2d0f7841b)
+
 
 ## 🧪 Test Strategy and Test Cases
 
@@ -200,11 +168,10 @@ Educational institutions often struggle with outdated course registration system
 
 ### Deployment Diagram
 
-![Deployment Diagram](assets/deployment_diagram.png)
+![sampleDeployment](https://github.com/BlackEmpir7199/220701216-CS19442-SE-Lab/assets/118678415/a7ca3b4e-7909-4175-a82c-b946c6c910f7)
+
 
 ### Azure Deployment
-
-![Azure Deployment Diagram](assets/azure_deployment_diagram.png)
 
 - Utilizes Azure for cloud deployment.
 - Ensures scalability and reliability.
@@ -239,7 +206,6 @@ Please make sure to update tests as appropriate.
 - **SADHANA A** - 220701235
 - **PREM KUMAR D** - 220701204
 
-![Footer Image](assets/footer.png)
 
 ---
 
