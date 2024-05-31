@@ -1,0 +1,107 @@
+@startuml
+title <size:23>Elective Course Registration System MVC Architecture</size>
+
+package "Client Side" {
+    [Admin Browser]
+    [Student Browser]
+    [Instructor Browser]
+}
+
+package "Azure Infrastructure" {
+    node "Azure Load Balancer" {
+        [Frontend IP Configuration]
+        [Backend Pool]
+    }
+    
+    package "Web Tier" {
+        node "Azure App Service" {
+            [Web App]
+            [React Frontend]
+        }
+    }
+
+    package "Application Tier" {
+        node "Azure App Service" {
+            [API App]
+            [Node.js Express Server]
+        }
+        node "Azure Services" {
+            [Azure Services Suite]
+        }
+    }
+
+    package "Database Tier" {
+        [Azure SQL Database]
+        [Azure Storage]
+        [Azure Cosmos DB]
+    }
+
+    package "Monitoring and Analytics" {
+        [Azure Monitor]
+        [Azure Application Insights]
+        [Azure Log Analytics]
+    }
+}
+
+package "MVC Components" {
+    package "Model" {
+        [User Model]
+        [Course Model]
+        [Enrollment Model]
+        [Instructor Model]
+    }
+    
+    package "View" {
+        [React Components]
+        [HTML/CSS]
+    }
+
+    package "Controller" {
+        [User Controller]
+        [Course Controller]
+        [Enrollment Controller]
+        [Instructor Controller]
+    }
+
+    package "Routes" {
+        [API Routes]
+    }
+}
+
+[Admin Browser] --> [Azure Load Balancer] : HTTPS
+[Student Browser] --> [Azure Load Balancer] : HTTPS
+[Instructor Browser] --> [Azure Load Balancer] : HTTPS
+
+[Azure Load Balancer] --> [Web App] : HTTPS
+[Web App] --> [React Frontend] : Render UI
+
+[React Frontend] --> [API App] : API Calls
+
+[API App] --> [Node.js Express Server] : Handle Requests
+[Node.js Express Server] --> [User Controller] : Manage User Actions
+[Node.js Express Server] --> [Course Controller] : Manage Course Actions
+[Node.js Express Server] --> [Enrollment Controller] : Manage Enrollment Actions
+[Node.js Express Server] --> [Instructor Controller] : Manage Instructor Actions
+
+[User Controller] <--> [User Model] : Data Operations
+[Course Controller] <--> [Course Model] : Data Operations
+[Enrollment Controller] <--> [Enrollment Model] : Data Operations
+[Instructor Controller] <--> [Instructor Model] : Data Operations
+
+[Node.js Express Server] --> [Azure Services] : External Services
+[Node.js Express Server] --> [Azure SQL Database] : Database Operations
+[Node.js Express Server] --> [Azure Storage] : Blob/File Operations
+[Node.js Express Server] --> [Azure Cosmos DB] : NoSQL Operations
+
+[API Routes] <--> [User Controller] : Route Requests
+[API Routes] <--> [Course Controller] : Route Requests
+[API Routes] <--> [Enrollment Controller] : Route Requests
+[API Routes] <--> [Instructor Controller] : Route Requests
+
+[Web App] --> [Azure Monitor] : Monitoring Data
+[API App] --> [Azure Monitor] : Monitoring Data
+[Web App] --> [Azure Application Insights] : Application Telemetry
+[API App] --> [Azure Application Insights] : Application Telemetry
+[Web App] --> [Azure Log Analytics] : Log Data
+[API App] --> [Azure Log Analytics] : Log Data
+@enduml

@@ -1,0 +1,69 @@
+@startuml
+title <size:20>Elective Course Registration System Deployment Diagram</size>
+
+skinparam componentStyle rectangle
+
+node "Azure Cloud" {
+
+    node "Client Side" {
+        [Student Browser]
+        [Faculty Browser]
+        [Admin Browser]
+    }
+
+    node "Machines" {
+        [Web Server VMs]
+        [App Server VMs]
+        [Database Server VM]
+    }
+
+    node "Web Server" {
+        [Azure Load Balancer]
+        [Azure App Service - Web App]
+        [React Frontend]
+    }
+
+    node "Application Server" {
+        [Azure App Service - API App]
+        [Node.js Express Server]
+        [Azure Services]
+    }
+
+    node "Database Server" {
+        [Azure SQL Database]
+        [Azure Storage]
+        [Azure Cosmos DB]
+    }
+
+    package "Analytics and Monitoring" {
+        [Azure Monitor]
+        [Azure Application Insights]
+        [Azure Log Analytics]
+    }
+
+    [Student Browser] -down-> [Azure Load Balancer] : HTTPS
+    [Faculty Browser] -down-> [Azure Load Balancer] : HTTPS
+    [Admin Browser] -down-> [Azure Load Balancer] : HTTPS
+
+    [Azure Load Balancer] -down-> [Web Server VMs] : HTTPS
+
+    [Web Server VMs] -down-> [Azure App Service - Web App] : Deploy
+    [Azure App Service - Web App] -down-> [React Frontend] : Render UI
+    [React Frontend] -down-> [App Server VMs] : API Calls
+
+    [App Server VMs] -down-> [Azure App Service - API App] : Deploy
+    [Azure App Service - API App] -down-> [Node.js Express Server] : Handle Requests
+    [Node.js Express Server] -down-> [Azure Services] : <<Various Services>>
+
+    [Azure Services] -down-> [Azure SQL Database] : <<SQL Query>>
+    [Azure Services] -down-> [Azure Storage] : <<Blob/File Operations>>
+    [Azure Services] -down-> [Azure Cosmos DB] : <<NoSQL Query>>
+
+    [Web Server VMs] --> [Azure Monitor] : <<Monitoring Data>>
+    [App Server VMs] --> [Azure Monitor] : <<Monitoring Data>>
+    [Web Server VMs] --> [Azure Application Insights] : <<Application Telemetry>>
+    [App Server VMs] --> [Azure Application Insights] : <<Application Telemetry>>
+    [Web Server VMs] --> [Azure Log Analytics] : <<Log Data>>
+    [App Server VMs] --> [Azure Log Analytics] : <<Log Data>>
+}
+@enduml

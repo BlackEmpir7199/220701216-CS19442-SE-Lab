@@ -1,0 +1,48 @@
+@startuml
+title <size:23>Elective Course Registration System MVC Architecture </size>
+
+package "Client Side" {
+    [Admin Browser]
+    [Student Browser]
+    [Instructor Browser]
+}
+
+package "MVC Components" {
+    package "Model" {
+        [User Model]
+        [Course Model]
+        [Enrollment Model]
+        [Instructor Model]
+    }
+    
+    package "View" {
+        [React Components]
+        [HTML/CSS]
+    }
+
+    package "Controller" {
+        [User Controller]
+        [Course Controller]
+        [Enrollment Controller]
+        [Instructor Controller]
+    }
+
+    package "Routes" {
+        [API Routes]
+    }
+}
+
+[Admin Browser] --> [API Routes] : HTTPS
+[Student Browser] --> [API Routes] : HTTPS
+[Instructor Browser] --> [API Routes] : HTTPS
+
+[User Controller] <--> [User Model] : Data Operations
+[Course Controller] <--> [Course Model] : Data Operations
+[Enrollment Controller] <--> [Enrollment Model] : Data Operations
+[Instructor Controller] <--> [Instructor Model] : Data Operations
+
+[API Routes] <--> [User Controller] : Route Requests/Responses
+[API Routes] <--> [Course Controller] : Route Requests/Responses
+[API Routes] <--> [Enrollment Controller] : Route Requests/Responses
+[API Routes] <--> [Instructor Controller] : Route Requests/Responses
+@enduml

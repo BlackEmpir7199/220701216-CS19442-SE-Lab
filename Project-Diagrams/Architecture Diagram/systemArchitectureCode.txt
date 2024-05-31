@@ -1,0 +1,80 @@
+@startuml
+title <size:22>Elective Course Registration System Architecture</size>
+
+node "Azure Cloud" {
+
+    package "Client Side" {
+        [Admin Browser]
+        [Student Browser]
+        [Instructor Browser]
+    }
+
+    package "Azure Infrastructure" {
+    node "Azure Load Balancer" {
+        [Frontend IP Configuration]
+        [Backend Pool]
+    } 
+    
+        
+        package "Web Tier" {
+            node "Azure App Service" {
+                [Web App]
+                [React Frontend]
+            }
+        }
+
+        package "Application Tier" {
+            node "Azure App Service" {
+                [API App]
+                [Node.js Express Server]
+            }
+            node "Azure Services" {
+                [Azure Redis Cache]
+                [Azure Active Directory]
+                [Azure Key Vault]
+                [Azure Notification Hubs]
+                [MongoDB API Client]
+            }
+        }
+
+        package "Database Tier" {
+            [Azure SQL Database]
+            [Azure Storage]
+            [Azure Cosmos DB]
+        }
+
+        package "Analytics and Monitoring" {
+            [Azure Monitor]
+            [Azure Application Insights]
+            [Azure Log Analytics]
+        }
+    }
+
+    [Admin Browser] --> [Azure Load Balancer] : HTTPS
+    [Student Browser] --> [Azure Load Balancer] : HTTPS
+    [Instructor Browser] --> [Azure Load Balancer] : HTTPS
+    [Azure Load Balancer] --> [Web App] : HTTPS
+    [Web App] --> [React Frontend] : Render UI
+    [React Frontend] --> [API App] : API Calls
+
+    [API App] --> [Node.js Express Server] : Handle Requests
+    [Node.js Express Server] --> [Azure Active Directory] : OAuth 2.0 / OpenID Connect
+    [Node.js Express Server] --> [Azure Redis Cache] : Cache Query
+    [Node.js Express Server] --> [Azure SQL Database] : SQL Query
+    [Node.js Express Server] --> [Azure Storage] : Blob/File Operations
+    [Node.js Express Server] --> [Azure Cosmos DB] : NoSQL Query
+    [Node.js Express Server] --> [Azure Key Vault] : Secure Secrets
+    [Node.js Express Server] --> [Azure Notification Hubs] : Send Notifications
+    [Node.js Express Server] --> [MongoDB API Client] : Database Operations
+
+    [Azure Active Directory] --> [Azure SQL Database] : Authentication Query
+    [API App] --> [Azure Redis Cache] : Cache Management
+
+    [Web App] --> [Azure Monitor] : Monitoring Data
+    [API App] --> [Azure Monitor] : Monitoring Data
+    [Web App] --> [Azure Application Insights] : Application Telemetry
+    [API App] --> [Azure Application Insights] : Application Telemetry
+    [Web App] --> [Azure Log Analytics] : Log Data
+    [API App] --> [Azure Log Analytics] : Log Data
+}
+@enduml
