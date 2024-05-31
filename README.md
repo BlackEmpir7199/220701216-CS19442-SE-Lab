@@ -39,7 +39,13 @@ Educational institutions often struggle with outdated course registration system
 
 ### Overview
 
-### MVC Architecture
+### 🏢 Business Architecture
+Business architecture provides a structural framework that aligns technological solutions with business objectives, ensuring that the course registration system effectively supports the strategic goals of the educational institution.
+
+![businessArchitecture](https://github.com/BlackEmpir7199/220701216-CS19442-SE-Lab/assets/118678415/36ab5af7-a1b2-48dc-b11f-e9d6dc8f73fa)
+
+
+### 🎛 MVC Architecture
 
 ![systemMVCArchitecture](https://github.com/BlackEmpir7199/220701216-CS19442-SE-Lab/assets/118678415/63aab791-0a68-4a42-a7d4-8a3a44a6318f)
 
@@ -47,7 +53,7 @@ Educational institutions often struggle with outdated course registration system
 - **View:** Renders UI components
 - **Controller:** Handles user input and updates the model
 
-### Deployment Architecture
+### 🌎 Deployment Architecture
 
 ![deploymentDiagarm](https://github.com/BlackEmpir7199/220701216-CS19442-SE-Lab/assets/118678415/63ff7d29-9157-433d-b5b8-b751f738824f)
 
